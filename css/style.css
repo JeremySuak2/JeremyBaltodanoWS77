@@ -1,0 +1,734 @@
+/* ===== RESET ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  background:#111;
+  color:#fff;
+  font-family: "FuturaBT", Arial, sans-serif;
+}
+
+/* ===== NAVBAR ===== */
+/* ===== NAVBAR ===== */
+.header{
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  align-items:center;
+  padding:0px 40px;
+  background:rgba(0,0,0,0.45);
+  backdrop-filter: blur(6px);
+  z-index:1000;
+}
+.menu-toggle{
+  margin-left:auto; /* lo empuja a la derecha */
+  font-size:24px;
+  color:#fff;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+/* LOGO */
+.logo{
+  font-weight:bold;
+  letter-spacing:2px;
+  padding-left: 50px;
+}
+
+/* NAV LINKS */
+.nav{
+  margin-left:auto;   /* empuja todo a la derecha */
+  display:flex;
+  gap:25px; /*Distancia*/
+}
+@font-face {
+  font-family: "FuturaBT";
+  src: url("../fonts/Futura\ Md\ BT\ Medium.woff2") format("woff2"),
+       url("../fonts/Futura\ Md\ BT\ Medium.ttf") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* BOTON MENU MOVIL */
+.menu-toggle{
+  display:none;
+  font-size:22px;
+  cursor:pointer;
+  z-index:1100;
+}
+
+
+
+/*Navbar escondido telefono*/
+@media (max-width: 768px){
+
+  .menu-toggle{
+    display:block;
+    color:#fff;
+  }
+  
+
+  .nav{
+    position:fixed;
+    top:0;
+    right:-100%;
+    width:260px;
+    height:100vh;
+    background:#0e141a;
+
+    display:flex;          /* ← IMPORTANTE */
+    flex-direction:column;
+    align-items:center;
+
+    padding-top:100px;
+    gap:25px;
+
+    transition:0.4s ease;
+    z-index:1050;
+  }
+
+  .nav.active{
+    right:0;
+  }
+  
+
+}
+
+
+/*VER EN TELEFONO*/
+@media (max-width:768px){
+
+  .header{
+    padding:15px 20px;
+  }
+
+  .logo img{
+    height:32px;
+  }
+
+}
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.5);
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  z-index:1000;
+}
+
+.menu-overlay.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+
+.nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:500;
+  transition:.3s;
+  font-family:"FuturaBT";
+  font-size: 18px;/*tamaño*/
+  text-transform: uppercase;
+
+}
+
+.nav a:hover{
+  color:#2ec4ff;
+}
+
+/* ICONOS */
+.social-icons{
+  display:flex;
+  justify-content:center;
+  gap:22px;
+  
+  align-items:center;
+  margin-top:auto;   /* empuja los iconos hacia abajo */
+
+}
+
+
+.social-icons a{
+  color:#fff;
+  font-size:18px;
+  transition:.3s;
+}
+
+.social-icons a:hover{
+  color:#2ec4ff;
+}
+
+/* TikTok pegado al borde derecho */
+.social-icons .tiktok{
+  margin-right:-10px;
+}
+/* LOGO */
+.logo{
+  display:flex;
+  align-items:center;
+}
+
+.logo img{
+  height:60px;      /* tamaño ideal */
+  width:auto;
+  transition:.3s;
+  align-items:center;
+
+  object-fit:contain;
+}
+
+
+/*Logo en modo telefono*/
+@media (max-width:600px){
+
+  .logo img{
+    height:48px;
+   display: flex;
+   margin-left:-10px;
+
+  }
+
+  .header{
+    padding:12px 18px;
+  }
+
+}
+
+.logo img:hover{
+  transform:scale(1.05);
+}
+
+
+
+
+
+/************************************************************************************/
+
+
+
+
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;
+  height:clamp(420px, 100vh, 900px);
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  padding:120px 60px 60px;
+}
+
+/* slider */
+.hero-slider{
+  position:absolute;
+  inset:0;
+}
+
+.slide{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  opacity:0;
+  transition:opacity 1.5s ease-in-out;
+}
+
+.slide.active{
+  opacity:1;
+}
+
+/* capa oscura */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+  z-index:1;
+}
+
+/* texto */
+.hero-overlay{
+  position:relative;
+  z-index:2;
+  max-width:600px;
+}
+
+.hero h1{
+  font-size:48px;
+  line-height:1.2;
+  font-weight:900;
+}
+
+.hero p{
+  margin-top:15px;
+  color:#2ec4ff;
+  font-weight:600;
+}
+
+/* dots */
+.hero-dots{
+  position:absolute;
+  bottom:25px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:10px;
+  z-index:2;
+}
+
+.dot{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.5);
+  cursor:pointer;
+  transition:.3s;
+}
+
+.dot.active{
+  background:#fff;
+  transform:scale(1.2);
+}
+
+
+
+/* 📱 HERO EN TELEFONOS */
+/* 📱 HERO*/
+/* ===== HERO BASE ===== */
+
+.hero{
+  position:relative;
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  padding:120px 60px 60px;
+}
+
+/* contenedor del slider */
+.hero-slider{
+  position:absolute;
+  inset:0;
+}
+
+/* imágenes del slider */
+.slide{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  opacity:0;
+  transition:opacity 1.5s ease-in-out;
+}
+
+.slide.active{
+  opacity:1;
+}
+
+/* capa oscura */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+  z-index:1;
+}
+
+/* texto */
+.hero-overlay{
+  position:relative;
+  z-index:2;
+  max-width:600px;
+}
+
+.hero h1{
+  font-size:48px;
+  line-height:1.2;
+  font-weight:900;
+}
+
+.hero p{
+  margin-top:15px;
+  color:#2ec4ff;
+  font-weight:600;
+  
+}
+
+
+/*Hero TELEGOFNO*/
+
+
+/* 📱 HERO EN TELEFONOS */
+@media (max-width: 768px){
+
+  .hero{
+    padding:0;
+    height:45vh;
+    display:flex;
+    justify-content:center;
+    
+    align-items:flex-start; /* evita espacio arriba/abajo */
+    padding-top:80px;
+    text-align:center;
+  }
+
+  /* IMAGEN SIN ZOOM */
+  .slide{
+    
+    width:auto;
+    height:100%;
+    object-fit:contain;
+    object-position:center 80%; /* ← muestra completa */
+    background:#000;      /* relleno elegante */
+  }
+
+  .hero-overlay{
+    padding:10px;
+  }
+
+  .hero-overlay h1{
+    font-size:26px;
+  }
+  .hero-dots{
+  bottom:20px;   /* sube los puntos */
+}
+
+
+  .hero-overlay p{
+    font-size:15px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+/* ===== FEATURED ===== */
+.featured{
+  display:flex;
+  overflow: hidden;
+  /*justify-content:center;*/
+  gap:30px;
+  margin: auto;
+  max-width: 970px;
+  padding:60px 0px;
+ 
+}
+
+
+.card{
+  background:#fff;
+  color:#333;
+  border-radius:18px;
+  overflow:hidden;
+  width:300px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+}
+
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+.card h3{
+  margin-top:15px;
+}
+
+.card p{
+  font-size:14px;
+  padding:10px 20px;
+}
+
+.card button{
+  background:#ff4b2b;
+  border:none;
+  color:#fff;
+  padding:10px 25px;
+  margin:15px 0 20px;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.card button:hover{
+  background:#e13e20;
+}
+/* contenedor general fondo */
+.featured-wrapper{
+  background:#1a1a1a;
+  padding:80px 0;
+  text-align:center;
+  overflow:hidden;
+  background-image:url("../src/img/lo\ mas\ pedido.jpg");
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+}
+
+
+.featured-wrapper::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.65); /* 👈 controla la opacidad aquí */
+  z-index:0;
+}
+
+/* Asegura que el contenido esté encima */
+.featured-wrapper > *{
+  position:relative;
+  z-index:1;
+}
+
+/* titulo */
+.featured-title{
+  font-size:32px;
+  font-weight:900;
+  margin-bottom:40px;
+}
+
+/* viewport */
+
+/* pista deslizante */
+.featured-track{
+  display:flex;
+  gap:30px;
+  transition:transform .6s ease;
+}
+
+/* indicadores */
+.featured-dots{
+  margin-top:25px;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+}
+
+.featured-dots span{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#666;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.featured-dots span.active{
+  background:#fff;
+  transform:scale(1.2);
+}
+/* Flechas */
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(255,255,255,0.1);
+  border:none;
+  color:#fff;
+  font-size:28px;
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  cursor:pointer;
+  backdrop-filter:blur(5px);
+  transition:.3s;
+  z-index:10;
+}
+
+.arrow:hover{
+  background:#ff4b2b;
+}
+
+.arrow.left{
+  left:5%;
+}
+
+.arrow.right{
+  right:5%;
+}
+
+.featured-wrapper{
+  position:relative;
+}
+/*TELEFONO MOVIL*/
+
+
+/* =========================
+   📱 MOBILE
+========================= */
+@media (max-width: 768px){
+
+  .featured{
+    max-width:auto;
+    padding:40px 15px;
+    align-items: center;
+  }
+
+  .featured-track{
+    gap:inherit;
+    
+  }
+
+  .card{
+    width:85vw; /* ocupa casi todo el ancho */
+    
+  }
+
+  .card img{
+    height:160px;
+  }
+
+  .featured-title{
+    font-size:24px;
+    margin-bottom:20px;
+  }
+
+  .featured-wrapper{
+    padding:60px 0;
+    background-attachment:scroll; /* importante para móvil */
+  }
+
+  /* Ocultar flechas en móvil */
+  .arrow{
+    display:none;
+  }
+
+  .featured-dots{
+    margin-top:20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== ABOUT ===== */
+.about{
+  display:flex;
+  align-items:center;
+  gap:50px;
+  padding:80px 60px;
+  background:#16202a;
+}
+
+.about img{
+  width:100%;
+  max-width:500px;
+  border-radius:10px;
+}
+
+.about-text{
+  max-width:500px;
+}
+
+.about-text h2{
+  font-size:32px;
+  margin-bottom:15px;
+}
+
+.about-text p{
+  line-height:1.6;
+  color:#ccc;
+}
+
+.about-text button{
+  margin-top:20px;
+  padding:10px 25px;
+  border:2px solid #fff;
+  background:transparent;
+  color:#fff;
+  border-radius:25px;
+  cursor:pointer;
+}
+
+/* ===== RESERVATION ===== */
+.reservation{
+  text-align:center;
+  padding:100px 20px;
+  background:url('img/reserva.jpg') center/cover no-repeat;
+}
+
+.reservation h2{
+  font-size:42px;
+  font-weight:900;
+}
+
+.reservation p{
+  margin:15px 0 25px;
+}
+
+.reservation button{
+  padding:12px 30px;
+  border:none;
+  border-radius:25px;
+  background:#fff;
+  color:#000;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* ===== FOOTER ===== */
+.footer{
+  background:#0e141a;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  padding:50px 60px;
+}
+
+.footer-col{
+  width:220px;
+  margin-bottom:20px;
+}
+
+.footer-col h3{
+  margin-bottom:15px;
+}
+
+.footer-col p{
+  color:#ccc;
+  font-size:14px;
+  margin-bottom:6px;
+}

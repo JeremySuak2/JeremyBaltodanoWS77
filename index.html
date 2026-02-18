@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tulum Restaurant</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+  <!-- ICONOS -->
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+
+<header class="header">
+
+
+    
+  <div class="logo">
+    <img src="src/img/logo.webp" alt="logo">
+  </div>
+<button class="menu-toggle" onclick="toggleMenu()">
+  <i class="fa-solid fa-bars"></i>
+</button>
+
+
+  <nav class="nav" id="navMenu">
+
+    <a href="#">Inicio</a>
+    <a href="#">Menú</a>
+    <a href="#">Galería</a>
+    <a href="#">Reservas</a>
+    <a href="#">Sobre Nosotros</a>
+
+     <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="tiktok"><i class="fab fa-tiktok"></i></a>
+  </div>
+
+  </nav>
+ 
+</header>
+  <div class="menu-overlay" id="menuOverlay"></div>
+
+
+  <section class="hero">
+
+  <div class="hero-slider">
+    <img src="src/img/fondo.jpg" class="slide active">
+    <img src="src/img/fondo2.jpg" class="slide">
+    <img src="src/img/fondo3.jpg" class="slide">
+  </div>
+
+  <div class="hero-overlay">
+    <h1>Momentos especiales comienzan con buen sabor.</h1>
+    <p>Reserva hoy y crea recuerdos alrededor de la mesa.</p>
+  </div>
+
+  <!-- INDICADORES -->
+  <div class="hero-dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+
+</section>
+
+
+
+  <section class="featured-wrapper">
+
+  <h2 class="featured-title">Lo Más Buscado</h2>
+  <p>Reserva hoy y crea recuerdos alrededor de la mesa.</p>
+  
+  <button class="arrow left">&#10094;</button>
+  <button class="arrow right">&#10095;</button>
+
+
+  <div class="featured">
+    <div class="featured-track">
+
+      <!-- tus cards (puedes duplicar hasta 9) -->
+      <div class="card">
+        <img src="src/img/Menu/sushi.jpg">
+        <h3>Sushi Clásico</h3>
+        <p>Sabores tradicionales que nunca fallan.</p>
+        <button>Ver menú</button>
+      </div>
+
+            <div class="card">
+        <img src="src/img/Menu/hamburhgeas.jpg">
+        <h3>Hamburguesa</h3>
+        <p>Sabores tradicionales que nunca fallan.</p>
+        <button>Ver menú</button>
+      </div>
+
+            <div class="card">
+        <img src="src/img/Menu/tacos.jpg">
+        <h3>Tacos</h3>
+        <p>Sabores tradicionales que nunca fallan.</p>
+        <button>Ver menú</button>
+      </div>
+            <div class="card">
+        <img src="src/img/Menu/almuerzo.jpg">
+        <h3>Almuerzo Ejecutivo</h3>
+        <p>Sabores tradicionales que nunca fallan.</p>
+        <button>Ver menú</button>
+      </div>
+            <div class="card">
+        <img src="src/img/Menu/ceviche.jpg">
+        <h3>Ceviche</h3>
+        <p>Sabores tradicionales que nunca fallan.</p>
+        <button>Ver menú</button>
+      </div>
+
+      <div class="card">
+        <img src="src/img/Menu/bowl.jpg">
+        <h3>Bowl Tropical</h3>
+        <p>Frutas frescas con granola crujiente.</p>
+        <button>Ver menú</button>
+      </div>
+
+            <div class="card">
+        <img src="src/img/Menu/postre.jpg">
+        <h3>Postres</h3>
+        <p>Sabores tradicionales que nunca fallan.</p>
+        <button>Ver menú</button>
+      </div>
+
+      <div class="card">
+        <img src="src/img/Menu/cocteles.jpg">
+        <h3>Cocteles</h3>
+        <p>Nuestra receta estrella.</p>
+        <button>Ver menú</button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="featured-dots"></div>
+
+</section>
+
+
+
+  <!-- SOBRE NOSOTROS -->
+  <section class="about">
+    <div class="about-img">
+      <img src="img/equipo.jpg" alt="">
+    </div>
+    <div class="about-text">
+      <h2>La experiencia comienza con una bienvenida.</h2>
+      <p>
+        Nuestro equipo cuida cada detalle desde tu llegada,
+        ofreciendo un trato cordial y profesional...
+      </p>
+      <button>Ver más</button>
+    </div>
+  </section>
+
+  <!-- RESERVA -->
+  <section class="reservation">
+    <h2>Reserva tu mesa</h2>
+    <p>Ven a disfrutar, nosotros nos encargamos del resto.</p>
+    <button>Reservar ahora</button>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-col">
+      <h3>Tulum</h3>
+      <p>Historia del restaurante...</p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Horarios</h3>
+      <p>Lunes - Viernes: 8am - 10pm</p>
+      <p>Sábado - Domingo: 10pm</p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Ubicación</h3>
+      <p>Jinotepe, Nicaragua</p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Contáctanos</h3>
+      <p>+505 8888-8888</p>
+      <p>correo@email.com</p>
+    </div>
+  </footer>
+<script src="css/main.js"></script>
+
+</body>
+</html>
