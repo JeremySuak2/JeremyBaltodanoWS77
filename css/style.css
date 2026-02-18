@@ -1279,10 +1279,11 @@ input:focus, select:focus, textarea:focus {
 
 /*ABout*/
 .about-section {
+  position: relative;   /* IMPORTANTE */
   padding: 80px 20px;
-  background-color: #ffffff;
+  background: url("../src/img/lo\ mas\ pedido.jpg") center/cover no-repeat;
+  overflow: hidden;
 }
-
 .container {
   max-width: 1200px;
   margin: auto;
@@ -1326,7 +1327,7 @@ input:focus, select:focus, textarea:focus {
 .about-info p {
   margin-bottom: 15px;
   line-height: 1.7;
-  color: #555;
+  color: #ffffff;
 }
 
 .about-details {
@@ -1338,7 +1339,7 @@ input:focus, select:focus, textarea:focus {
   align-items: center;
   margin-bottom: 15px;
   font-size: 15px;
-  color: #333;
+  color: #ffffff;
 }
 
 .detail-item i {
@@ -1360,6 +1361,19 @@ input:focus, select:focus, textarea:focus {
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
+
+.about-section::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* reemplaza top, left, width, height */
+  background: rgba(0, 0, 0, 0.6); /* opacidad */
+  z-index: 1;
+}
+.about-section .container {
+  position: relative;
+  z-index: 2;
+  color: #fff; /* texto blanco para que contraste */
+}
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .about-content {
