@@ -27,7 +27,7 @@
 
   <nav class="nav" id="navMenu">
 
-    <a href="index.html">Inicio</a>
+      <a href="index.html">Inicio</a>
     <a href="Menu.html">Menú</a>
     <a href="Galery.html">Galería</a>
     <a href="Reserva.html">Reservas</a>
@@ -42,15 +42,86 @@
   </nav>
  
 </header>
+
+
+
+<!-- SECCIÓN RESERVAS -->
+<section class="reserva-section">
+  <div class="reserva-container">
     
-<br>
-<br>
-<br>
-<br>
-<br>
-<h1>Hola mundo</h1>
-<h2>mi primera pagina web </h2>
-<h3>By jeremy baltoguapo</h3>
+    <div class="reserva-info">
+      <h1>Reserva tu Mesa</h1>
+      <p>
+        Vive una experiencia gastronómica única. 
+        Agenda tu mesa fácilmente y asegura tu lugar en Tulum.
+      </p>
+
+      <div class="reserva-datos">
+        <p><i class="fa-solid fa-clock"></i> Atención: 8:00 AM - 10:00 PM</p>
+        <p><i class="fa-solid fa-phone"></i> +505 8888-8888</p>
+        <p><i class="fa-solid fa-location-dot"></i> Jinotepe, Nicaragua</p>
+      </div>
+    </div>
+
+    <div class="reserva-formulario">
+      <form id="formReserva">
+        
+        <div class="input-group">
+          <label>Nombre Completo</label>
+          <input type="text" required>
+        </div>
+
+        <div class="input-group">
+          <label>Correo Electrónico</label>
+          <input type="email" required>
+        </div>
+
+        <div class="input-group">
+          <label>Teléfono</label>
+          <input type="tel" required>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label>Fecha</label>
+            <input type="date" required>
+          </div>
+
+          <div class="input-group">
+            <label>Hora</label>
+            <input type="time" required>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>Número de Personas</label>
+          <select required>
+            <option value="">Seleccionar</option>
+            <option>1 Persona</option>
+            <option>2 Personas</option>
+            <option>3 Personas</option>
+            <option>4 Personas</option>
+            <option>5+ Personas</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label>Mensaje (Opcional)</label>
+          <textarea rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn-reservar">
+          Confirmar Reserva
+        </button>
+
+      </form>
+    </div>
+
+  </div>
+</section>
+
+
+
 
 
 

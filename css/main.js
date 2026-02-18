@@ -234,3 +234,8 @@ const observerReservation = new IntersectionObserver((entries) => {
 observerReservation.observe(reservationSection);
 
 
+/**RESERVA */
+document.getElementById("formReserva").addEventListener("submit", function(e){
+    e.preventDefault();
+    alert("¡Reserva enviada con éxito! Nos comunicaremos contigo pronto.");
+});

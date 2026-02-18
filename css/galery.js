@@ -23,3 +23,30 @@ botones.forEach(boton => {
 
   });
 });
+// =============================
+// MENU MOVIL
+// =============================
+
+const toggle = document.getElementById("menuToggle");
+const nav = document.getElementById("navMenu");
+const overlay = document.getElementById("menuOverlay");
+
+if(toggle && nav && overlay){
+
+  toggle.addEventListener("click", () => {
+    nav.classList.toggle("active");
+    overlay.classList.toggle("active");
+  });
+
+  overlay.addEventListener("click", () => {
+    nav.classList.remove("active");
+    overlay.classList.remove("active");
+  });
+
+
+
+
+}
+function toggleMenu(){
+  document.querySelector(".nav").classList.toggle("active");
+}

@@ -1054,13 +1054,26 @@ body{
   color: #fff;
 }
 .galeria-page .header {
-  background-color: #1b1b1b;
+  
 }
 .galeria {
   padding: 60px 10%;
-  background:#737272;
+    background: url("../src/img/lo\ mas\ pedido.jpg") center/cover no-repeat;
+
   text-align: center;
 }
+/*revisar*/
+.galeria::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Cambia el 0.6 para más o menos opacidad */
+  z-index: -1;
+}
+
 
 .galeria h2 {
   
@@ -1077,6 +1090,7 @@ body{
 .filtros button {
   background: none;
   border: none;
+  color: white;
   font-size: 16px;
   margin: 0 10px;
   cursor: pointer;
@@ -1086,11 +1100,11 @@ body{
 }
 
 .filtros button:hover {
-  background: #f2f2f2;
+  background: #fa3636;
 }
 
 .filtros .activo {
-  background: black;
+  background: rgb(255, 38, 38);
   color: white;
 }
 
@@ -1130,5 +1144,229 @@ body{
 @media (max-width: 600px) {
   .contenedor-galeria {
     grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+
+/*RESERVAAAAAAAAAA*/
+
+.reserva-section {
+  position: relative;
+  padding: 100px 10%;
+  background: url("../src/img/lo\ mas\ pedido.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reserva-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Opacidad */
+  z-index: 1;
+}
+
+/* Para que el contenido quede encima del overlay */
+.reserva-container {
+  position: relative;
+  z-index: 2;
+}
+.reserva-container {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.reserva-info {
+  flex: 1;
+  min-width: 300px;
+}
+
+.reserva-info h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.reserva-info p {
+  color: #ffffff;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.reserva-datos p {
+  margin: 8px 0;
+  font-weight: 500;
+}
+
+.reserva-formulario {
+  flex: 1;
+  min-width: 300px;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.input-row {
+  display: flex;
+  gap: 15px;
+}
+
+.input-row .input-group {
+  flex: 1;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+input, select, textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #c59d5f;
+}
+
+.btn-reservar {
+  width: 100%;
+  padding: 12px;
+  background: #c59d5f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-reservar:hover {
+  background: #a67c3b;
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+  .reserva-container {
+    flex-direction: column;
+  }
+
+  .input-row {
+    flex-direction: column;
+  }
+}
+
+
+/*ABout*/
+.about-section {
+  padding: 80px 20px;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-header h2 {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.section-header .line {
+  width: 80px;
+  height: 3px;
+  background-color: #c59d5f;
+  margin: auto;
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  align-items: center;
+}
+
+.about-info {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-info h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.about-info p {
+  margin-bottom: 15px;
+  line-height: 1.7;
+  color: #555;
+}
+
+.about-details {
+  margin-top: 25px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 15px;
+  color: #333;
+}
+
+.detail-item i {
+  color: #c59d5f;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.about-map {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-map iframe {
+  width: 100%;
+  height: 350px;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+  }
+
+  .section-header h2 {
+    font-size: 28px;
   }
 }
