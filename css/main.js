@@ -232,3 +232,5 @@ const observerReservation = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 
 observerReservation.observe(reservationSection);
+
+
