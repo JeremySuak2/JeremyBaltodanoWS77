@@ -419,6 +419,9 @@ body{
 
 
 /* ===== FEATURED ===== */
+
+
+
 .featured{
   display:flex;
   overflow: hidden;
@@ -448,7 +451,7 @@ body{
 
 .card img{
   width:100%;
-  height:180px;
+  height:250px;
   object-fit:cover;
 }
 
@@ -581,24 +584,24 @@ body{
 @media (max-width: 768px){
 
   .featured{
-    max-width:auto;
-    padding:40px 15px;
-    align-items: center;
+    max-width:100%;
+    padding:40px 0;  /*  quitamos padding lateral */
   }
 
   .featured-track{
-    gap:inherit;
-    
+    gap:30;  /*  sin separación en móvil */
   }
 
   .card{
-    width:85vw; /* ocupa casi todo el ancho */
-    
+    width:90vw;  /* ocupa casi todo pero deja margen visual */
+    margin:0 auto;
   }
 
-  .card img{
-    height:160px;
-  }
+ .card img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+}
 
   .featured-title{
     font-size:24px;
@@ -607,10 +610,9 @@ body{
 
   .featured-wrapper{
     padding:60px 0;
-    background-attachment:scroll; /* importante para móvil */
+    background-attachment:scroll;
   }
 
-  /* Ocultar flechas en móvil */
   .arrow{
     display:none;
   }
@@ -619,9 +621,6 @@ body{
     margin-top:20px;
   }
 }
-
-
-
 
 
 
@@ -682,6 +681,79 @@ body{
   border-radius:25px;
   cursor:pointer;
 }
+.about-img{
+  opacity:0;
+  transform:translateY(-60px) rotate(-3deg);
+  transition:all 1s ease;
+}
+
+.about-img.show{
+  opacity:1;
+  transform:translateY(0) rotate(0);
+}
+.about-text{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 1s ease;
+  transition-delay:.3s; /* 🔥 aparece después de la imagen */
+}
+
+.about-text.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@media (max-width:768px){
+
+  .about{
+    flex-direction:column;
+    padding:60px 25px;
+    text-align:center;
+    gap:30px;
+  }
+
+  .about-img{
+    order:1; /* imagen primero */
+  }
+
+  .about-text{
+    order:2;
+  }
+
+  .about img{
+    max-width:100%;
+  }
+
+  .about-text h2{
+    font-size:26px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ===== RESERVATION ===== */
 .reservation{
@@ -708,27 +780,268 @@ body{
   font-weight:bold;
   cursor:pointer;
 }
+.reservation{
+  position:relative;
+  overflow:hidden;
+  padding:120px 20px;
+  text-align:center;
+  color:#fff;
+}
+
+
+
+/* Fondo dividido */
+.reservation-bg{
+  position:absolute;
+  inset:0;
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  z-index:0;
+}
+
+/* Columnas */
+/* Estado inicial */
+/* Estado inicial */
+.reservation-bg div{
+  opacity:0;
+  transform:translateY(0);
+  transition:transform 1s ease, opacity 1s ease;
+
+  background-size:cover;
+  background-position:center 40%;
+  background-repeat:no-repeat;
+}
+
+
+/* Las que bajan */
+.reservation-bg div:nth-child(1),
+.reservation-bg div:nth-child(3){
+  transform:translateY(-80px);
+}
+
+/* Las que suben */
+.reservation-bg div:nth-child(2),
+.reservation-bg div:nth-child(4){
+  transform:translateY(80px);
+}
+
+/* Cuando la sección aparece */
+.reservation.show .reservation-bg div{
+  transform:translateY(0);
+  opacity:1;
+}
+
+
+
+
+/* Asigna tus imágenes */
+.reservation-bg div:nth-child(1){
+  background-image:url("../src/img/reservation/497760977_571782822608767_8760215675081148692_n.jpg");
+}
+.reservation-bg div:nth-child(2){
+  background-image:url("../src/img/reservation/4.jpg");
+}
+.reservation-bg div:nth-child(3){
+  background-image:url("../src/img/reservation/2.jpg");
+}
+.reservation-bg div:nth-child(4){
+  background-image:url("../src/img/reservation/3.jpg");
+}
+
+/* Contenido encima */
+.reservation-content{
+  position:relative;
+  z-index:2;
+}
+.reservation::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.7);
+  z-index:1;
+}
+.reservation-content{
+  position:relative;
+  z-index:2;
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 1s ease;
+}
+
+.reservation-content.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px){
+
+  /* Ocultamos el fondo dividido */
+  .reservation-bg{
+    display:none;
+  }
+
+  /* Usamos una sola imagen */
+  .reservation{
+    background-image:url("../src/img/reservation/4.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+  }
+
+  /* Opcional: más altura tipo hero */
+  .reservation{
+    min-height:70vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ===== FOOTER ===== */
 .footer{
-  background:#0e141a;
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  padding:50px 60px;
+  background:#0f1720;
+  padding:80px 40px 60px;
+  color:#aaa;
 }
 
-.footer-col{
-  width:220px;
-  margin-bottom:20px;
+.footer-container{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:60px;
 }
 
+/* Columnas */
 .footer-col h3{
-  margin-bottom:15px;
+  font-size:14px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#fff;
+  margin-bottom:25px;
 }
 
 .footer-col p{
-  color:#ccc;
-  font-size:14px;
-  margin-bottom:6px;
+  font-size:14px;  /* 🔥 antes estaba muy grande */
+  line-height:1.7;
+  margin-bottom:12px;
+  transition:.3s;
+}
+
+.footer-col p:hover{
+  color:#fff;
+}
+
+.footer-col img{
+  width:160px;
+  margin-top:-25px;
+
+}
+
+/* Separación elegante */
+.footer{
+  border-top:1px solid rgba(255,255,255,0.05);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer-bottom{
+  background:#0f1720;
+  border-top:1px solid rgba(255,255,255,0.15);
+  padding:20px 60px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+
+.footer-bottom p{
+  font-size:13px;
+  color:#aaa;
+  letter-spacing:1px;
+}
+
+/* ICONOS */
+.social-icons{
+  display:flex;
+  gap:18px;
+}
+
+.social-icons a{
+  color:#aaa;
+  font-size:16px;
+  transition:.3s;
+}
+
+.social-icons a:hover{
+  color:#fff;
+  transform:translateY(-3px);
+}
+@media (max-width:768px){
+  .footer-bottom{
+    flex-direction:column;
+    gap:15px;
+    text-align:center;
+  }
+}
+
+
+
+@media (max-width:768px){
+
+  .footer-container{
+    grid-template-columns:1fr;
+    text-align:center;
+    gap:40px;
+  }
+
+  .footer-col p{
+    text-align:center;
+  }
+
 }

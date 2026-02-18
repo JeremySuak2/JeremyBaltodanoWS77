@@ -111,16 +111,31 @@ if(track && cards.length){
   }
 
   function updatePosition(transition = true){
-    const cardWidth = allCards[0].offsetWidth + 30;
 
-    track.style.transition = transition ? "transform .6s ease" : "none";
-    track.style.transform =
-      `translateX(-${cardWidth * currentIndex}px)`;
+  const container = document.querySelector(".featured");
+  const gap = parseInt(getComputedStyle(track).gap) || 0;
+  const cardWidth = allCards[0].offsetWidth + gap;
 
-    updateDots();
+  // 🔥 Centrado automático en móvil
+  let offset = 0;
+
+  if(window.innerWidth <= 768){
+    offset = (container.offsetWidth - allCards[0].offsetWidth) / 2;
   }
 
+  track.style.transition = transition ? "transform .6s ease" : "none";
+  track.style.transform =
+    `translateX(-${cardWidth * currentIndex - offset}px)`;
+
+  updateDots();
+}
+
+
   updatePosition(false);
+  window.addEventListener("resize", () => {
+  updatePosition(false);
+});
+
 
   function next(){
     currentIndex++;
@@ -160,3 +175,60 @@ if(track && cards.length){
 
   setInterval(next, 3500);
 }
+
+
+
+
+
+
+
+/**ABOUT */
+
+const aboutSection = document.querySelector(".about");
+const aboutImg = document.querySelector(".about-img");
+const aboutText = document.querySelector(".about-text");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      aboutImg.classList.add("show");
+      aboutText.classList.add("show");
+    }
+  });
+}, { threshold: 0.3 });
+
+if(aboutSection){
+  observer.observe(aboutSection);
+}
+
+
+
+const reservation = document.querySelector(".reservation");
+const reservationContent = document.querySelector(".reservation-content");
+
+const reservationObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      reservationContent.classList.add("show");
+    }
+  });
+}, { threshold: 0.3 });
+
+if(reservation){
+  reservationObserver.observe(reservation);
+}
+
+
+
+const reservationSection = document.querySelector(".reservation");
+
+const observerReservation = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      reservationSection.classList.add("show");
+      observerReservation.unobserve(reservationSection); // 🔥 solo una vez
+    }
+  });
+}, { threshold: 0.3 });
+
+observerReservation.observe(reservationSection);
