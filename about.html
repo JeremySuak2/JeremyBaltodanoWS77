@@ -2,7 +2,6 @@
 <html lang="es">
 <head>
       <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 
   <!-- ICONOS -->
@@ -40,7 +39,7 @@
   </div>
 
   </nav>
- 
+
 </header>
 <!-- SOBRE NOSOTROS -->
 
@@ -48,14 +47,14 @@
 <section class="about-section" id="about">
   <div class="container">
 
-    <div class="section-header">
+    <div class="section-header reveal">
       <h2>Sobre Nosotros</h2>
       <div class="line"></div>
     </div>
 
     <div class="about-content">
 
-      <div class="about-info">
+      <div class="about-info reveal">
         <h3>Una experiencia que se vive</h3>
         <p>
           Desde junio de 2023, <strong>Tulum</strong> nació con la visión 
@@ -86,22 +85,34 @@
         </div>
       </div>
 
-      <div class="about-map">
-        <iframe 
-          src="https://www.google.com/maps?q=Jinotepe,Nicaragua&output=embed"
-          loading="lazy">
-        </iframe>
+      <div class="about-map reveal">
+        <img src="src/img/493045403_561722303614819_182712571065657973_n.jpg" alt="Nuestro local">
       </div>
 
     </div>
   </div>
 </section>
 
+<section class="visit-section">
 
+  <div class="visit-header reveal">
+    <h2>Visítanos</h2>
+    <p>Estamos listos para recibirte y brindarte una experiencia inolvidable.</p>
+  </div>
 
+  <div class="visit-map reveal">
+    
+    <div class="loader" id="mapLoader"></div>
 
+    <iframe
+      id="mapFrame"
+      src="https://www.google.com/maps?q=Jinotepe,Nicaragua&output=embed"
+      loading="lazy">
+    </iframe>
 
+  </div>
 
+</section>
 
 <!-- FOOTER -->
   <footer class="footer">
@@ -146,6 +157,6 @@
   </div>
 </div>
 
-<script src="css/main.js"></script>    
+<script src="css/about.js"></script>    
 </body>
 </html>
