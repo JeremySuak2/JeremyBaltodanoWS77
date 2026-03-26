@@ -54,6 +54,9 @@ body{
   font-style: normal;
 }
 
+
+
+
 /* BOTON MENU MOVIL */
 .menu-toggle{
   display:none;
@@ -224,6 +227,19 @@ body{
   align-items:center;
   padding:120px 60px 60px;
 }
+.hero-girl{
+  position:absolute;
+  right:0;
+  bottom:0;
+  height:110%;
+  max-height:100%;
+  object-fit:contain;
+  /*right:5px; la saca un poquito para que se vea más natural */
+  z-index:2;
+  pointer-events:none;
+ /* -webkit-mask-image: linear-gradient(to left, black 70%, transparent 100%);
+  mask-image: linear-gradient(to left, black 70%, transparent 100%);*/
+}
 
 /* slider */
 .hero-slider{
@@ -260,12 +276,16 @@ body{
   z-index:2;
   max-width:600px;
 }
-
-.hero h1{
-  font-size:48px;
-  line-height:1.2;
-  font-weight:900;
+@font-face {
+  font-family: 'Berlin';
+  src: url('../fonts/BRLNSDB.woff') format('woff'),
+       url('../fonts/BRLNSDB.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
+
+
+
 
 .hero p{
   margin-top:15px;
@@ -348,19 +368,22 @@ body{
 .hero-overlay{
   position:relative;
   z-index:2;
-  max-width:600px;
+  max-width:800px;
 }
 
-.hero h1{
-  font-size:48px;
-  line-height:1.2;
-  font-weight:900;
+.hero h1 {
+  font-size: 70px;
+  line-height: 1.2;
+  font-weight: 900;
+  font-family: 'Berlin', sans-serif;
+  text-transform:uppercase;
 }
 
 .hero p{
   margin-top:15px;
   color:#2ec4ff;
   font-weight:600;
+  font-size: 21px;
   
 }
 
@@ -430,7 +453,6 @@ body{
   margin: auto;
   max-width: 970px;
   padding:60px 0px;
- 
 }
 
 
@@ -692,7 +714,7 @@ body{
 .about-text p{
   line-height:1.6;
   color:#ffffff;
-  font-size: 28px;
+  font-size: 18px;
 }
 
 /* BOTON */
