@@ -284,9 +284,44 @@ body{
   font-style: normal;
 }
 
+.hero-btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 60px;
+  font-size:18px;
+  border:4px solid #f74836;
+  background:transparent;
+  color:#f74836;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  letter-spacing:1px;
+  transition:all .3s ease;
+}
+.hero-btn:hover{
+  background:#f74836;
+  color:#fff;
+  transform:translateY(-3px);
+}
+.btn-secondary{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 60px;
+  font-size:18px;
+  border:4px solid #f74836;
+  background:transparent;
+  color:#f74836;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  letter-spacing:1px;
+  transition:all .3s ease;
+}
 
-
-
+.btn-secondary:hover{
+  background:#f74836;
+  color:#fff;
+}
 .hero p{
   margin-top:15px;
   color:#2ec4ff;
@@ -377,13 +412,17 @@ body{
   font-weight: 900;
   font-family: 'Berlin', sans-serif;
   text-transform:uppercase;
+  color: white;
 }
 
 .hero p{
   margin-top:15px;
-  color:#2ec4ff;
+  color:#f74836;
   font-weight:600;
-  font-size: 21px;
+  font-size: 20px;
+ /* text-transform: uppercase;*/
+  letter-spacing: 1px;
+  font-weight: bold;
   
 }
 
@@ -434,11 +473,58 @@ body{
 }
 
 
+@media (max-width: 768px){
+  .hero-girl{
+    height:80%;
+    right:-10px;
 
+    z-index:0;
+  }
 
+  .hero-overlay{
+    z-index:2;
+    max-width:280px;
+    margin-right: 80px;
+    
+  }
+    .hero-overlay h1{
+    font-size:22px;
+    text-align: left;
+  }
+  .hero-overlay P{
+    font-size: 14px;
+    color: #2ec4ff;
+    text-align: left;
+  }
+}
 
+@media (max-width: 1200px){
 
+  .hero-girl{
+    height:95%;
+    right:-30px; /* un poco fuera para que no estorbe */
+    z-index:0;
+  }
 
+  .hero-overlay{
+    max-width:580px; /* más ancho que tablet */
+    margin-left:60px;
+    z-index:2;
+  }
+
+  .hero-overlay h1{
+    font-size:48px; /* tamaño balanceado */
+    line-height:1.2;
+    text-align:left;
+  }
+
+  .hero-overlay p{
+    font-size:18px;
+    text-align:left;
+    color:#2ec4ff;
+  }
+
+}
 
 
 /* ===== FEATURED ===== */
@@ -476,14 +562,28 @@ body{
   height:250px;
   object-fit:cover;
 }
-
+/*Tarjeta*/
 .card h3{
   margin-top:15px;
+  font-family: 'Bebas', sans-serif;
+  font-weight: 400; /* o normal */
+  text-transform: uppercase;
+  font-size: 35px;
+  letter-spacing: 1px;
+  color: black;
 }
-
+@font-face {
+  font-family: 'Bebas';
+  src: url('../fonts/BebasNeue-Regular.woff2') format('woff2'),
+       url('../fonts/BebasNeue-Regular.woff') format('woff');
+  font-weight: 400; /* normal */
+  font-style: normal;
+}
 .card p{
-  font-size:14px;
+  font-size:18px;
   padding:10px 20px;
+  font-weight: normal;
+  color:black;
 }
 
 .card button{
@@ -1470,6 +1570,20 @@ input:focus, select:focus, textarea:focus {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*ABout*/
 .about-section {
   position: relative;   /* IMPORTANTE */
@@ -1576,4 +1690,69 @@ input:focus, select:focus, textarea:focus {
   .section-header h2 {
     font-size: 28px;
   }
+}
+/* ===== TEXTBOX PRO (SIN CAMBIAR HTML) ===== */
+
+.input-group{
+  position: relative;
+}
+
+/* INPUTS */
+.input-group input,
+.input-group select,
+.input-group textarea{
+  width: 100%;
+  padding: 16px 14px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  color: #333;
+  font-size: 14px;
+  transition: all .3s ease;
+  backdrop-filter: blur(6px);
+}
+
+/* EFECTO HOVER */
+.input-group input:hover,
+.input-group select:hover,
+.input-group textarea:hover{
+  border-color: #c59d5f;
+}
+
+/* EFECTO FOCUS */
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus{
+  border-color: #c59d5f;
+  box-shadow: 0 0 0 3px rgba(197,157,95,0.25);
+  background: #fff;
+}
+
+/* LABEL MÁS LIMPIO */
+.input-group label{
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 6px;
+  transition: .3s;
+}
+
+/* SELECT */
+select{
+  cursor: pointer;
+}
+
+/* TEXTAREA */
+textarea{
+  resize: none;
+}
+
+/* EFECTO SUAVE AL ESCRIBIR */
+.input-group input,
+.input-group textarea{
+  transition: all 0.25s ease;
+}
+
+/* OPCIONAL: EFECTO MÁS PREMIUM */
+.reserva-formulario{
+  backdrop-filter: blur(10px);
 }
